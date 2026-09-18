@@ -1,0 +1,19 @@
+{
+  "id": "zen-ios-color-picker",
+  "name": "iOS Color Picker for Zen",
+  "description": "iOS-inspired color picker for Zen's Theme Picker with grid, spectrum, RGB sliders, HEX, opacity, favorites, and gradient integration.",
+  "style": {
+    "chrome": "style.css"
+  },
+  "scripts": {
+    "ios-color-picker.uc.js": {
+      "include": ["chrome://browser/content/browser.xhtml"]
+    }
+  },
+  "author": "Local mod",
+  "version": "0.1.0",
+  "tags": ["Zen", "theme", "color picker", "iOS"],
+  "createdAt": "2026-09-18",
+  "updatedAt": "2026-09-18",
+  "fork": ["zen"]
+}
