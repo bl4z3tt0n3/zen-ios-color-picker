@@ -1,0 +1,441 @@
+#PanelUI-zen-gradient-generator.ioscp-enhanced {
+  --panel-width: 408px;
+  min-width: var(--panel-width) !important;
+}
+
+#PanelUI-zen-gradient-generator.ioscp-enhanced:not(.ioscp-show-native) .ioscp-native-section {
+  display: none !important;
+}
+
+#PanelUI-zen-gradient-generator.ioscp-enhanced #PanelUI-zen-gradient-generator-view {
+  gap: 0 !important;
+}
+
+#zen-ios-color-picker-root {
+  --ioscp-bg: light-dark(#f2f2f7, #1c1c1e);
+  --ioscp-card: light-dark(#ffffff, #2c2c2e);
+  --ioscp-card-2: light-dark(#e9e9ee, #3a3a3c);
+  --ioscp-border: light-dark(rgba(60, 60, 67, 0.20), rgba(84, 84, 88, 0.65));
+  --ioscp-text: light-dark(#111111, #ffffff);
+  --ioscp-secondary: light-dark(#6d6d72, #aeaeb2);
+  --ioscp-blue: #0a84ff;
+  --ioscp-current: #0a84ff;
+  --ioscp-alpha: 1;
+  --ioscp-current-rgba: rgba(10, 132, 255, 1);
+  box-sizing: border-box;
+  width: 100%;
+  padding: 4px 2px 2px;
+  color: var(--ioscp-text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  user-select: none;
+}
+
+#zen-ios-color-picker-root *,
+#zen-ios-color-picker-root *::before,
+#zen-ios-color-picker-root *::after {
+  box-sizing: border-box;
+}
+
+#zen-ios-color-picker-root button,
+#zen-ios-color-picker-root input {
+  font: inherit;
+}
+
+#zen-ios-color-picker-root .ioscp-header {
+  height: 38px;
+  display: grid;
+  grid-template-columns: 58px 1fr 58px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+#zen-ios-color-picker-root .ioscp-title {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+#zen-ios-color-picker-root .ioscp-icon-button,
+#zen-ios-color-picker-root .ioscp-done {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--ioscp-blue);
+  min-height: 30px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#zen-ios-color-picker-root .ioscp-icon-button {
+  width: 34px;
+  justify-self: start;
+  font-size: 20px;
+}
+
+#zen-ios-color-picker-root .ioscp-icon-button:disabled {
+  color: var(--ioscp-secondary);
+  opacity: 0.38;
+  cursor: default;
+}
+
+#zen-ios-color-picker-root .ioscp-pipette-glyph {
+  display: inline-block;
+  transform: rotate(-42deg);
+  font-weight: 700;
+}
+
+#zen-ios-color-picker-root .ioscp-done {
+  justify-self: end;
+  width: auto;
+  padding: 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+#zen-ios-color-picker-root .ioscp-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 30px;
+  padding: 2px;
+  margin-bottom: 12px;
+  border-radius: 9px;
+  background: var(--ioscp-card-2);
+}
+
+#zen-ios-color-picker-root .ioscp-tab {
+  appearance: none;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--ioscp-text);
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 120ms ease, box-shadow 120ms ease;
+}
+
+#zen-ios-color-picker-root .ioscp-tab.selected {
+  background: var(--ioscp-card);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  font-weight: 600;
+}
+
+#zen-ios-color-picker-root .ioscp-pages {
+  min-height: 214px;
+}
+
+#zen-ios-color-picker-root .ioscp-page[hidden] {
+  display: none !important;
+}
+
+#zen-ios-color-picker-root .ioscp-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2px;
+  padding: 2px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--ioscp-border);
+}
+
+#zen-ios-color-picker-root .ioscp-grid-color {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  width: 100%;
+  aspect-ratio: 1 / 0.92;
+  min-width: 0;
+  background: var(--grid-color);
+  cursor: pointer;
+  position: relative;
+}
+
+#zen-ios-color-picker-root .ioscp-grid-color.selected::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.45);
+}
+
+#zen-ios-color-picker-root .ioscp-spectrum-wrap {
+  position: relative;
+  height: 214px;
+  border-radius: 11px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px var(--ioscp-border);
+  touch-action: none;
+}
+
+#zen-ios-color-picker-root .ioscp-spectrum {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+#zen-ios-color-picker-root .ioscp-spectrum-marker {
+  --marker-color: #0a84ff;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.48), 0 2px 5px rgba(0, 0, 0, 0.28);
+  background: var(--marker-color);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+#zen-ios-color-picker-root .ioscp-sliders-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 8px 2px 0;
+}
+
+#zen-ios-color-picker-root .ioscp-slider-row {
+  display: grid;
+  grid-template-columns: 18px 1fr 52px;
+  gap: 10px;
+  align-items: center;
+}
+
+#zen-ios-color-picker-root .ioscp-channel-label {
+  color: var(--ioscp-secondary);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#zen-ios-color-picker-root .ioscp-range,
+#zen-ios-color-picker-root .ioscp-opacity-range {
+  --range-gradient: linear-gradient(90deg, #000, #fff);
+  appearance: none;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--range-gradient);
+  cursor: pointer;
+}
+
+#zen-ios-color-picker-root .ioscp-range::-moz-range-track,
+#zen-ios-color-picker-root .ioscp-opacity-range::-moz-range-track {
+  height: 18px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+}
+
+#zen-ios-color-picker-root .ioscp-range::-moz-range-progress,
+#zen-ios-color-picker-root .ioscp-opacity-range::-moz-range-progress {
+  background: transparent;
+}
+
+#zen-ios-color-picker-root .ioscp-range::-moz-range-thumb,
+#zen-ios-color-picker-root .ioscp-opacity-range::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 3px solid white;
+  background: transparent;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+#zen-ios-color-picker-root .ioscp-number,
+#zen-ios-color-picker-root .ioscp-hex,
+#zen-ios-color-picker-root #ioscp-opacity-number {
+  appearance: none;
+  border: 0;
+  outline: none;
+  color: var(--ioscp-text);
+  background: var(--ioscp-card-2);
+  border-radius: 7px;
+  height: 30px;
+  padding: 0 8px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+#zen-ios-color-picker-root .ioscp-number {
+  width: 52px;
+}
+
+#zen-ios-color-picker-root .ioscp-hex-row {
+  display: grid;
+  grid-template-columns: 1fr 112px;
+  gap: 10px;
+  align-items: center;
+  margin-top: 2px;
+  padding-top: 10px;
+  border-top: 1px solid var(--ioscp-border);
+  color: var(--ioscp-secondary);
+  font-size: 12px;
+}
+
+#zen-ios-color-picker-root .ioscp-hex {
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+#zen-ios-color-picker-root .ioscp-common-controls {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ioscp-border);
+}
+
+#zen-ios-color-picker-root .ioscp-opacity-row {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+#zen-ios-color-picker-root .ioscp-current-well {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background:
+    linear-gradient(var(--ioscp-current-rgba), var(--ioscp-current-rgba)),
+    repeating-conic-gradient(#b8b8bc 0 25%, #ffffff 0 50%) 0 / 10px 10px;
+  box-shadow: 0 0 0 1px var(--ioscp-border), inset 0 0 0 2px rgba(255,255,255,.20);
+}
+
+#zen-ios-color-picker-root .ioscp-opacity-control {
+  min-width: 0;
+}
+
+#zen-ios-color-picker-root .ioscp-control-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: var(--ioscp-secondary);
+}
+
+#zen-ios-color-picker-root #ioscp-opacity-number {
+  width: 48px;
+  height: 25px;
+  padding: 0 4px;
+  background: transparent;
+  text-align: right;
+}
+
+#zen-ios-color-picker-root .ioscp-opacity-range {
+  --range-gradient:
+    linear-gradient(90deg, transparent, var(--ioscp-current)),
+    repeating-conic-gradient(#b8b8bc 0 25%, #ffffff 0 50%) 0 / 12px 12px;
+  width: 100%;
+}
+
+#zen-ios-color-picker-root .ioscp-palette-title {
+  margin: 14px 0 7px;
+  color: var(--ioscp-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#zen-ios-color-picker-root .ioscp-swatches {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 5px;
+}
+
+#zen-ios-color-picker-root .ioscp-swatch {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  min-width: 0;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--swatch-color, transparent);
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 0 0 1px var(--ioscp-border);
+}
+
+#zen-ios-color-picker-root .ioscp-swatch.selected::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.38);
+}
+
+#zen-ios-color-picker-root .ioscp-add-swatch {
+  background: var(--ioscp-card-2);
+  color: var(--ioscp-secondary);
+  font-size: 21px;
+  line-height: 1;
+}
+
+#zen-ios-color-picker-root .ioscp-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+#zen-ios-color-picker-root .ioscp-primary-action,
+#zen-ios-color-picker-root .ioscp-secondary-action,
+#zen-ios-color-picker-root .ioscp-native-toggle {
+  appearance: none;
+  min-height: 34px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#zen-ios-color-picker-root .ioscp-primary-action {
+  border: 0;
+  background: var(--ioscp-blue);
+  color: white;
+}
+
+#zen-ios-color-picker-root .ioscp-secondary-action {
+  border: 1px solid var(--ioscp-border);
+  background: var(--ioscp-card);
+  color: var(--ioscp-blue);
+}
+
+#zen-ios-color-picker-root .ioscp-native-toggle {
+  display: block;
+  width: 100%;
+  margin-top: 7px;
+  border: 0;
+  background: transparent;
+  color: var(--ioscp-secondary);
+  min-height: 28px;
+  font-weight: 500;
+}
+
+#zen-ios-color-picker-root .ioscp-status {
+  min-height: 18px;
+  margin-top: 2px;
+  text-align: center;
+  font-size: 11px;
+  color: #30b34a;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+#zen-ios-color-picker-root .ioscp-status.visible {
+  opacity: 1;
+}
+
+#zen-ios-color-picker-root .ioscp-status.error {
+  color: #ff453a;
+}
+
+#PanelUI-zen-gradient-generator.ioscp-enhanced.ioscp-show-native .ioscp-native-section {
+  margin-top: 12px !important;
+}
+
